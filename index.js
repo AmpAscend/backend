@@ -6,6 +6,7 @@ require('dotenv').config();
 const authRouter = require("./routes/auth");
 const vehicleRouter = require("./routes/vehicles");
 const homeRouter = require("./routes/homes");
+const nearestStationRouter = require("./routes/nearest_station");
 
 
 
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use(authRouter);
 app.use(vehicleRouter);
 app.use(homeRouter);
+app.use(nearestStationRouter);
 
 
 mongoose

@@ -26,4 +26,17 @@ homeRouter.post("/api/addHome", auth,  async (req, res) => {
     }
   });
 
+  homeRouter.post("/api/homes", auth,  async (req, res) => {
+    try {
+      const userId = req.user;
+  
+      const homes = await User.find({ user: userId });
+  
+      res.json(homes);
+    } catch (error) {
+      console.error('Error fetching homes:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
   module.exports = homeRouter;
